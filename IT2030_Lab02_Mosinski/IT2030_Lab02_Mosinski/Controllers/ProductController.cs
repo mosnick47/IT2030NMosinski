@@ -8,6 +8,7 @@ namespace IT2030_Lab02_Mosinski.Controllers
 {
     public class ProductController : Controller
     {
+        // Nicholas Mosinski 1/29/2018
         // GET: Product
         public string Index()
         {
