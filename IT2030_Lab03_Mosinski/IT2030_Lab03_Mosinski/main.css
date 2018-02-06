@@ -1,0 +1,119 @@
+﻿
+
+*
+{
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+html
+{
+    background-color: black;
+}
+
+/* Styles for the body */
+body
+{
+    color: white;
+    font-size: 100%;
+    margin: 0 auto 0 auto;
+    width: 1000px;
+    border: 3px solid white;
+}
+
+/* Styles for the header */
+header
+{
+    border-bottom: solid 3px;
+    border-bottom-color: white;
+    text-align: center;
+}
+
+/* Styles for the section */
+section
+{
+    float: right;
+    width: 750px;
+    padding-bottom: 10px;
+}
+
+section a
+{
+    color: white;
+}
+
+/* Styles for the nav_menu */
+#nav_menu
+{
+    padding-bottom: 75px;
+}
+
+#nav_menu ul
+{
+    list-style-type: none;
+    background-color: black;
+    margin:0;
+    padding: 0;
+    width: 1000px
+}
+
+#nav_menu ul li
+{
+    float: left;
+    border-right: solid 1px white;
+}
+
+#nav_menu ul li a
+{
+    display: inline-block;
+    width: 197px;
+    text-align: center;
+    padding: 1em 0;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    border: solid 1px white;
+}
+
+#nav_menu a.current
+{
+    color: grey;
+}
+
+/* Styles for the aside column */
+aside
+{
+    width : 215px;
+    float: left;
+    padding: .5em 0 1em 1em;
+    text-align: left;
+}
+
+aside h2
+{
+    font-size: 150%;
+    color: white;
+}
+
+aside h3
+{
+    font-size: 115%;
+    color: white;
+    padding: 10px 0 5px 0;
+}
+
+/* Styles for the footer */
+footer 
+{
+    font-size: 80%;    
+    text-align: center;
+    border-top: solid 3px white;
+    clear: both;
+}
+
+
+
+
+
+
