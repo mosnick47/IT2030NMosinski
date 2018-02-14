@@ -12,7 +12,6 @@ namespace IT2030_Lab02_Mosinski.Controllers
         {
             return View("../Other/Details");
         }
-
         public ActionResult About()
         {
             ViewBag.Message = "About method is being called.";
