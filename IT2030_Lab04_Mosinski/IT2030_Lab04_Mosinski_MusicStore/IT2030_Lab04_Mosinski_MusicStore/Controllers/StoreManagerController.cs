@@ -50,7 +50,7 @@ namespace IT2030_Lab04_Mosinski_MusicStore.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AlbumId,GenreId,ArtistId,Title,Price,AlbumArtUrl")] Album album)
+        public ActionResult Create([Bind(Include = "AlbumId,GenreId,ArtistId,Title,Price,AlbumArtUrl,InStock,CountryOfOrigin")] Album album)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace IT2030_Lab04_Mosinski_MusicStore.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AlbumId,GenreId,ArtistId,Title,Price,AlbumArtUrl")] Album album)
+        public ActionResult Edit([Bind(Include = "AlbumId,GenreId,ArtistId,Title,Price,AlbumArtUrl,InStock,CountryOfOrigin")] Album album)
         {
             if (ModelState.IsValid)
             {
@@ -132,6 +132,39 @@ namespace IT2030_Lab04_Mosinski_MusicStore.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult Test()
+        {
+            var albums = db.Albums;
+
+            // LINQ Query - can step through any IEnumerable object, NOT JUST DataBases
+
+            var albumsByName = from a in albums
+                              where a.Title == "Stormbringer"
+                              select a;
+            //===========    OR    ============
+            //var albumsByName = albums.Where(x => x.Title == "StormBringer");  // LINQ Extension - this is the preferred way
+
+            var albumsByArtist = from a in albums
+                                where a.Artist.Name == "Chic"
+                                select a;
+            //===========    OR    ============
+            //var albumsByArtist = albums.Where(x => x.Artist.Name == "Chic");  // LINQ Extension - this is the preferred way
+
+            var albumsByGenre = from a in albums
+                               where a.Genre.Name == "Classical"
+                               select a;
+            //===========    OR    ============
+            //var albumsByGenre = albums.Where(x => x.Genre.Name == "Classical").OrderByDescending(x => x.Title);   // LINQ Extension - this is the preferred way
+
+            // One way to send the query results to the view
+            ViewBag.AlbumsByName = new SelectList(albumsByName, "AlbumId", "Title", albumsByName.First().AlbumId);      // (IEnumerable items, Unique Identifier, Display value, Default value)
+                                                                                                                        // Take the first album in the and select it by album ID and set that as the default value.
+            ViewBag.AlbumsByArtist = new SelectList(albumsByArtist, "AlbumID", "Title", albumsByArtist.First().AlbumId);
+            ViewBag.AlbumsByGenre = new SelectList(albumsByGenre, "AlbumID", "Title", albumsByGenre.First().AlbumId);
+
+            return View();                                                          
         }
     }
 }
