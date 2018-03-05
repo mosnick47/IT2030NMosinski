@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IT2030_Lab07_Mosinski_EnrollmentAp", "IT2030_Lab07_Mosinski_EnrollmentAp\IT2030_Lab07_Mosinski_EnrollmentAp.csproj", "{22E81C33-6ED7-4A60-A7BE-EEFA1F82CBA0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22E81C33-6ED7-4A60-A7BE-EEFA1F82CBA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22E81C33-6ED7-4A60-A7BE-EEFA1F82CBA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22E81C33-6ED7-4A60-A7BE-EEFA1F82CBA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22E81C33-6ED7-4A60-A7BE-EEFA1F82CBA0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5872DA5-EF2B-42F1-9AA6-CC9C4846E073}
+	EndGlobalSection
+EndGlobal
