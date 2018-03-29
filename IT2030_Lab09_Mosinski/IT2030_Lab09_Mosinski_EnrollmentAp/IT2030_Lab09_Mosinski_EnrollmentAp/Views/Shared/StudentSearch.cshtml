@@ -1,0 +1,11 @@
+﻿@model IEnumerable<IT2030_Lab09_Mosinski_EnrollmentAp.Models.Student>
+
+<div id="searchresults">
+    <br />
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@String.Format("{0} {1}", item.FirstName, item.LastName)</li>
+        }
+    </ul>
+</div>

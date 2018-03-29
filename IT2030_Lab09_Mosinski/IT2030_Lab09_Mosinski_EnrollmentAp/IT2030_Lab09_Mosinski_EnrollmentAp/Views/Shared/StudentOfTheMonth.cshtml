@@ -1,0 +1,22 @@
+﻿@model IT2030_Lab09_Mosinski_EnrollmentAp.Models.Student
+
+@*@{
+
+    var listStudents = (from student in  select student);
+
+    int count = listStudents.Count();
+    int index = new Random().Next(count);
+
+    var randomStudent = listStudents.Skip(index).FirstOrDefault();
+}*@
+<div>
+    <h4>Student Of The Month!</h4>
+    <dl class="dl-horizontal">
+        <dd>
+            @String.Format("{0} {1} is this month's Student of the Month!", Html.DisplayFor(model => model.FirstName).ToString().ToUpper(), Html.DisplayFor(model => model.LastName).ToString().ToUpper())
+        </dd>
+        @*<dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>*@
+    </dl>
+</div>

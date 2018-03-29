@@ -1,0 +1,17 @@
+﻿@model IT2030_Lab04_Mosinski_MusicStore.Models.Album
+
+
+<h2>
+    Daily Deal!
+</h2>
+
+<div class="panel">
+    <div class="panel-heading">
+        Here's the album from our daily deals
+    </div>
+    <div class="panel-body">
+        <p>Title: @Model.Title</p>
+        <p>Price: @String.Format("{0:C}", Model.Price)</p>
+    </div>
+    @Html.ActionLink("Add to Cart", "AddToCart", "ShoppingCart", new { id = Model.AlbumId }, new { @class = "btn btn-primary" })
+</div>

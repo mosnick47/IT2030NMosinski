@@ -1,0 +1,66 @@
+﻿@model IEnumerable<IT2030_Lab09_Mosinski_EnrollmentAp.Models.Course>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Search For Courses:</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm("CourseSearch", "Courses", new AjaxOptions { UpdateTargetId = "searchresults", InsertionMode = InsertionMode.Replace, HttpMethod = "GET", LoadingElementId = "ajax-loader", OnFailure = "searchFailed" }))
+        {   // The next 3 lines of code is what is going to be "Ajaxified". The 2 inpute elements and the image element
+            <input type="text" name="q" />
+            <input type="submit" value="search" />
+            <img id="ajax-loader" src="@Url.Content("~/Images/ajax-loader.gif")" style="display: none;" />// This img element is what gets displayed when the Ajax portion of the page is loading
+        }
+        <div id="searchresults">
+            @*This is the div that will get replaced with the contents from the Ajax search*@
+        </div>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseCredits)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseCredits)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CourseId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CourseId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CourseId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section Scripts
+{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>    
+}

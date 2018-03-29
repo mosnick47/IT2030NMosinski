@@ -1,0 +1,11 @@
+﻿@model IEnumerable<IT2030_Lab09_Mosinski_EnrollmentAp.Models.Course>
+
+<div id="searchresults">
+    <br />
+    <ul>
+        @foreach(var item in Model)
+        {
+            <li>@item.CourseTitle</li>
+        }
+    </ul>
+</div>
