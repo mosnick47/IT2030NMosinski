@@ -1,0 +1,14 @@
+﻿@model IEnumerable<IT2030_Lab04_Mosinski_MusicStore.Models.Genre>
+
+<h2>Store</h2>
+
+<h3>Browse by Genre:</h3>
+
+<div id="browseByGenre">
+    <ul id="listGenre">
+        @foreach (var item in Model)
+        {
+            <li>@Html.ActionLink(item.Name, "Index", new { id = item.GenreId } )</li>
+        }
+    </ul>
+</div>

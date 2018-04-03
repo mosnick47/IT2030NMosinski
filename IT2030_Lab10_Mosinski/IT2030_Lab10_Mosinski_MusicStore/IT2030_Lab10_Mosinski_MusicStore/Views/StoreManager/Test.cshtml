@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Test";
+}
+
+<h2>Test</h2>
+
+<div>
+    @*These are html helpers. They help with Model Binding which directly ties this HTML element to the object in the database*@
+    @Html.TextBox("TextBox1", "Hello")
+</div>
+<div>
+    @Html.RadioButton("Radio1", "Red")      @*Radio button must have the same name to belong to the same group*@
+    @Html.RadioButton("Radio1", "Blue")     @*Otherwise, you will be able to select multiple of each*@
+    @Html.RadioButton("Radio1", "Green")
+</div>
+<div>
+    @Html.Label("Label1")
+</div>
+<div>
+    @Html.CheckBox("Checkbox", true)
+</div>
+<div>
+    @*Creates a dummy list of data for the DropDownList*@
+    @*@Html.DropDownList("Album", new List<SelectListItem>() {
+                                                            new SelectListItem() { Text = "Album1", Value = "1" }, 
+                                                            new SelectListItem() { Text = "Album2", Value = "2" }
+                                                            });*@
+
+    @*Calls data from the controller to the view. Must create a select list in the controller method and pass it to the view Bach *@
+    @Html.DropDownList("AlbumsByName")
+    @Html.DropDownList("AlbumsByArtist")
+    @Html.DropDownList("AlbumsByGenre")
+</div>
+
