@@ -1,0 +1,98 @@
+﻿@model IEnumerable<IT2030_Lab04_Mosinski_MusicStore.Models.Album>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div id="dailydeal">
+    @Ajax.ActionLink("Click here to see today's special!", "DailyDeal", null, new AjaxOptions { UpdateTargetId = "dailydeal", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" }, new { @class = "btn btn-primary" })
+
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Artist Search</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm("ArtistSearch", "StoreManager", new AjaxOptions { UpdateTargetId = "searchresults", InsertionMode = InsertionMode.Replace, HttpMethod = "GET", LoadingElementId = "ajax-loader", OnFailure = "searchFailed" }))
+        {   // The next 3 lines of code is what is going to be "Ajaxified". The 2 input elements and the img element
+            <input type="text" name="q" />
+            <input type="submit" value="search" />
+            <img id="ajax-loader" src="@Url.Content("~/Images/ajax-loader.gif")" style="display:none" />// This img element is what gets displayed when the Ajax portion of the page is loading
+        }
+        <div id="searchresults">
+            @*This is the div that will get replaced with the contents from the search*@
+        </div>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    @*Here we are just creating the table and headers.*@
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Artist.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genre.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AlbumArtUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InStock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CountryOfOrigin) @*These are all strongly-typed HTML helpers*@
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {@*Here we are populating the table with data from the database*@
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Artist.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genre.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AlbumArtUrl)
+        </td>
+        <td>
+            @Html.CheckBoxFor(modelItem => item.InStock)
+        </td>
+        <td>
+            @Html.RadioButtonFor(modelItem => item.CountryOfOrigin, "US")
+            @Html.RadioButtonFor(modelItem => item.CountryOfOrigin, "UK")
+            @Html.RadioButtonFor(modelItem => item.CountryOfOrigin, "Other")
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.AlbumId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.AlbumId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.AlbumId })
+        </td>
+    </tr>
+}
+
+</table>
+@section Scripts
+{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    @*<script src="~/Scripts/Apps/MusicStoreScript.js"></script>*@
+}
