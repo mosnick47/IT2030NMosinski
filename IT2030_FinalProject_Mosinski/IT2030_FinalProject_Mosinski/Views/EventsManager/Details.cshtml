@@ -1,0 +1,154 @@
+﻿@model IT2030_FinalProject_Mosinski.Models.Events
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Events</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EventTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventZip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventZip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganizationFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganizationFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganizerLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganizerLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrgananizerPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrgananizerPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganizerEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganizerEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxTickets)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxTickets)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AvailableTickets)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AvailableTickets)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EventID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

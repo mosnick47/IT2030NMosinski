@@ -1,0 +1,12 @@
+﻿@model IEnumerable<IT2030_FinalProject_Mosinski.Models.Events>
+
+<div id="searchresults">
+    <br />
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@String.Format($"{item.EventTitle} | {item.EventLocation} | {item.StartDate}")</li>
+        }
+    </ul>
+</div>
+

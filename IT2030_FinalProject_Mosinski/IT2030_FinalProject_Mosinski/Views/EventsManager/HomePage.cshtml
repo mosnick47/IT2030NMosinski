@@ -1,0 +1,28 @@
+﻿@model IEnumerable<IT2030_FinalProject_Mosinski.Models.Events>
+
+@section Scripts
+{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}
+
+@{
+    ViewBag.Title = "HomePage";
+}
+
+<h2>EventBrite</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Search For Events:</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm("EventSearch", "EventsManager", new AjaxOptions { UpdateTargetId = "searchresults", InsertionMode = InsertionMode.Replace, HttpMethod = "GET", LoadingElementId = "ajax-loader", OnFailure = "searchFailed" }))
+        {
+            <input type="text" name="q" placeholder="Search by Title or Description" />
+            <input type="text" name="r" placeholder="Serach by Location" />
+            <input type="submit" value="Search" />
+            <img id="ajax-loader" src="@Url.Content("~/Images/ajax-loader.gif")" style="display: none;" />// This is the image that gets displayed when the Ajax portion of the page is loading
+        }
+        <div id="searchresults">
+            @*This is the div that will get replaced with the contents from the Ajax search*@
+        </div>
+    </div>
+</div>
